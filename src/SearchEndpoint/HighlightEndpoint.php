@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 class HighlightEndpoint extends AbstractSearchEndpoint
 {
 
-    public const NAME = 'highlight';
+    public const string NAME = 'highlight';
 
     private ?BuilderInterface $highlight = null;
 

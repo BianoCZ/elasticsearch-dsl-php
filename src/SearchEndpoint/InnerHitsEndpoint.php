@@ -11,7 +11,7 @@ use function assert;
 class InnerHitsEndpoint extends AbstractSearchEndpoint
 {
 
-    public const NAME = 'inner_hits';
+    public const string NAME = 'inner_hits';
 
     protected function getName(): string
     {

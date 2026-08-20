@@ -16,9 +16,9 @@ class TermsSetQuery implements BuilderInterface
 
     use ParametersTrait;
 
-    public const MINIMUM_SHOULD_MATCH_TYPE = 'minimum_should_match';
-    public const MINIMUM_SHOULD_MATCH_TYPE_FIELD = 'minimum_should_match_field';
-    public const MINIMUM_SHOULD_MATCH_TYPE_SCRIPT = 'minimum_should_match_script';
+    public const string MINIMUM_SHOULD_MATCH_TYPE = 'minimum_should_match';
+    public const string MINIMUM_SHOULD_MATCH_TYPE_FIELD = 'minimum_should_match_field';
+    public const string MINIMUM_SHOULD_MATCH_TYPE_SCRIPT = 'minimum_should_match_script';
 
     private string $field;
 

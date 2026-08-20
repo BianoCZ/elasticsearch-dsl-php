@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 class SortEndpoint extends AbstractSearchEndpoint
 {
 
-    public const NAME = 'sort';
+    public const string NAME = 'sort';
 
     protected function getName(): string
     {

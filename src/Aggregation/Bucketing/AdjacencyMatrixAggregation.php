@@ -12,7 +12,7 @@ use Biano\ElasticsearchDSL\BuilderInterface;
 class AdjacencyMatrixAggregation extends AbstractBucketingAggregation
 {
 
-    private const FILTERS = 'filters';
+    private const string FILTERS = 'filters';
 
     /** @var array<string,array<string,array<mixed>>> */
     private array $filters = [

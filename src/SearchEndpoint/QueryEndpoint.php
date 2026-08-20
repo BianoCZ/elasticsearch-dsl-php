@@ -16,7 +16,7 @@ use function assert;
 class QueryEndpoint extends AbstractSearchEndpoint implements OrderedNormalizerInterface
 {
 
-    public const NAME = 'query';
+    public const string NAME = 'query';
 
     private ?BoolQuery $bool = null;
 

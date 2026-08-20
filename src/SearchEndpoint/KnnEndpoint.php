@@ -15,7 +15,7 @@ use function count;
 class KnnEndpoint extends AbstractSearchEndpoint
 {
 
-    public const NAME = 'knn';
+    public const string NAME = 'knn';
 
     protected function getName(): string
     {

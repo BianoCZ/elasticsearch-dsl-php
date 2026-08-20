@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 class PostFilterEndpoint extends QueryEndpoint
 {
 
-    public const NAME = 'post_filter';
+    public const string NAME = 'post_filter';
 
     protected function getName(): string
     {

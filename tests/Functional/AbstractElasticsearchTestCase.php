@@ -19,7 +19,7 @@ abstract class AbstractElasticsearchTestCase extends TestCase
     /**
      * Test index name in the elasticsearch.
      */
-    public const INDEX_NAME = 'elasticsearch-dsl-test';
+    public const string INDEX_NAME = 'elasticsearch-dsl-test';
 
     private Client $client;
 

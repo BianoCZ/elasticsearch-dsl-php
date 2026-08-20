@@ -11,7 +11,7 @@ use function assert;
 class AggregationsEndpoint extends AbstractSearchEndpoint
 {
 
-    public const NAME = 'aggregations';
+    public const string NAME = 'aggregations';
 
     protected function getName(): string
     {

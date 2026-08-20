@@ -17,8 +17,8 @@ class FieldSort implements BuilderInterface
 
     use ParametersTrait;
 
-    public const ASC = 'asc';
-    public const DESC = 'desc';
+    public const string ASC = 'asc';
+    public const string DESC = 'desc';
 
     private string $field;
 

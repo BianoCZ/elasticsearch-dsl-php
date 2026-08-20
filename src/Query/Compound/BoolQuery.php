@@ -26,10 +26,10 @@ class BoolQuery implements BuilderInterface
 
     use ParametersTrait;
 
-    public const MUST = 'must';
-    public const MUST_NOT = 'must_not';
-    public const SHOULD = 'should';
-    public const FILTER = 'filter';
+    public const string MUST = 'must';
+    public const string MUST_NOT = 'must_not';
+    public const string SHOULD = 'should';
+    public const string FILTER = 'filter';
 
     /** @var array<string,array<string,\Biano\ElasticsearchDSL\BuilderInterface>> */
     private array $container = [];

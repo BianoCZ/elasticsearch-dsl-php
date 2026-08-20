@@ -17,8 +17,8 @@ use function is_numeric;
 class HistogramAggregation extends AbstractBucketingAggregation
 {
 
-    public const DIRECTION_ASC = 'asc';
-    public const DIRECTION_DESC = 'desc';
+    public const string DIRECTION_ASC = 'asc';
+    public const string DIRECTION_DESC = 'desc';
 
     private ?int $interval = null;
 

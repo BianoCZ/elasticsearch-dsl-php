@@ -12,7 +12,7 @@ use function assert;
 class SuggestEndpoint extends AbstractSearchEndpoint
 {
 
-    public const NAME = 'suggest';
+    public const string NAME = 'suggest';
 
     protected function getName(): string
     {

@@ -17,5 +17,3 @@ parameters:
 		-
 		    message: '#^Cannot call method normalize\(\) on Biano\\ElasticsearchDSL\\Serializer\\OrderedSerializer\|null\.$#'
 		    path: src/Search.php
-		-
-
