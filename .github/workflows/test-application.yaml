@@ -28,6 +28,10 @@ jobs:
                       lint: true
                       symfony-version: '^7.0'
 
+                    - php-version: '8.4'
+                      lint: true
+                      symfony-version: '^8.0'
+
         services:
             elasticsearch:
                 image: elasticsearch:8.0.0
@@ -40,7 +44,9 @@ jobs:
 
         steps:
             - name: Checkout project
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
 
             - name: Install and configure PHP
               uses: shivammathur/setup-php@v2
@@ -53,13 +59,12 @@ jobs:
               run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
             - name: Cache dependencies
-              uses: actions/cache@v2
+              uses: actions/cache@v4
               id: composer-cache
               with:
                   path: ${{ steps.composer-cache-dir.outputs.dir }}
                   key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-composer-
+                  restore-keys: ${{ runner.os }}-composer-
 
             - name: Install dependencies
               run: |

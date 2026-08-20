@@ -23,7 +23,7 @@
         "php": "^8.1",
         "ext-json": "*",
         "elasticsearch/elasticsearch": "^8.0",
-        "symfony/serializer": "^5.0 || ^6.0 || ^7.0"
+        "symfony/serializer": "^5.0 || ^6.0 || ^7.0 || ^8.0"
     },
     "require-dev": {
         "biano/coding-standard": "^4.1",
