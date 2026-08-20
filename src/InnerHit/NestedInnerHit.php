@@ -48,20 +48,12 @@ class NestedInnerHit implements NamedBuilderInterface
     /**
      * Returns 'path' for nested and 'type' for parent inner hits
      */
-    private function getPathType(): ?string
+    private function getPathType(): string
     {
-        switch ($this->getType()) {
-            case 'nested':
-                $type = 'path';
-                break;
-            case 'parent':
-                $type = 'type';
-                break;
-            default:
-                $type = null;
-        }
-
-        return $type;
+        return match ($this->getType()) {
+            'parent' => 'type',
+            default => 'path',
+        };
     }
 
     public function getSearch(): ?Search

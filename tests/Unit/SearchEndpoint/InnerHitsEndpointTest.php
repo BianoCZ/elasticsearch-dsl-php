@@ -21,7 +21,7 @@ class InnerHitsEndpointTest extends TestCase
     public function testEndpointGetter(): void
     {
         $hitName = 'foo';
-        $innerHit = $this->createMock(BuilderInterface::class);
+        $innerHit = $this->createStub(BuilderInterface::class);
         $endpoint = new InnerHitsEndpoint();
         $endpoint->add($innerHit, $hitName);
         $builders = $endpoint->getAll();
@@ -32,10 +32,10 @@ class InnerHitsEndpointTest extends TestCase
 
     public function testNormalization(): void
     {
-        $normalizer = $this->createMock(NormalizerInterface::class);
-        $innerHit = $this->createMock(NestedInnerHit::class);
-        $innerHit->expects(self::any())->method('getName')->willReturn('foo');
-        $innerHit->expects(self::any())->method('toArray')->willReturn(['foo' => 'bar']);
+        $normalizer = $this->createStub(NormalizerInterface::class);
+        $innerHit = $this->createStub(NestedInnerHit::class);
+        $innerHit->method('getName')->willReturn('foo');
+        $innerHit->method('toArray')->willReturn(['foo' => 'bar']);
 
         $endpoint = new InnerHitsEndpoint();
         $endpoint->add($innerHit, 'foo');

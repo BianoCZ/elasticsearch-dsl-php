@@ -31,7 +31,7 @@ class ChildrenAggregationTest extends TestCase
 
     public function testChildrenAggregationGetArray(): void
     {
-        $mock = $this->createMock(AbstractAggregation::class);
+        $mock = $this->createStub(AbstractAggregation::class);
         $mock->setName('name');
 
         $aggregation = new ChildrenAggregation('foo');

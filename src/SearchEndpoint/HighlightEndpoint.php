@@ -21,7 +21,7 @@ class HighlightEndpoint extends AbstractSearchEndpoint
     /**
      * Key for highlight storing.
      */
-    private ?string $key = null;
+    private string $key = '';
 
     protected function getName(): string
     {
@@ -46,10 +46,10 @@ class HighlightEndpoint extends AbstractSearchEndpoint
             throw new OverflowException('Only one highlight can be set');
         }
 
-        $this->key = $key;
+        $this->key = $key ?? '';
         $this->highlight = $builder;
 
-        return $key ?? '';
+        return $this->key;
     }
 
     public function getHighlight(): ?BuilderInterface

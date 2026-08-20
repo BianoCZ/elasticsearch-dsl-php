@@ -13,8 +13,8 @@ class ConstantScoreQueryTest extends TestCase
 
     public function testToArray(): void
     {
-        $mock = $this->createMock(BuilderInterface::class);
-        $mock->expects(self::any())->method('toArray')->willReturn(['term' => ['foo' => 'bar']]);
+        $mock = $this->createStub(BuilderInterface::class);
+        $mock->method('toArray')->willReturn(['term' => ['foo' => 'bar']]);
 
         $query = new ConstantScoreQuery($mock, ['boost' => 1.2]);
         $expected = [

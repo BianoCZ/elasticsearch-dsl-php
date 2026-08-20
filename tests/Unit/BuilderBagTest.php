@@ -7,7 +7,7 @@ namespace Biano\ElasticsearchDSL\Tests\Unit;
 use Biano\ElasticsearchDSL\BuilderBag;
 use Biano\ElasticsearchDSL\BuilderInterface;
 use Biano\ElasticsearchDSL\NamedBuilderInterface;
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 
 class BuilderBagTest extends TestCase
@@ -60,12 +60,12 @@ class BuilderBagTest extends TestCase
         self::assertNotEmpty($bag->get($builderName));
     }
 
-    private function getBuilder(string $name): BuilderInterface&MockObject
+    private function getBuilder(string $name): BuilderInterface&Stub
     {
-        $builder = $this->createMock(NamedBuilderInterface::class);
+        $builder = $this->createStub(NamedBuilderInterface::class);
 
-        $builder->expects(self::any())->method('getName')->willReturn($name);
-        $builder->expects(self::any())->method('toArray')->willReturn([]);
+        $builder->method('getName')->willReturn($name);
+        $builder->method('toArray')->willReturn([]);
 
         return $builder;
     }

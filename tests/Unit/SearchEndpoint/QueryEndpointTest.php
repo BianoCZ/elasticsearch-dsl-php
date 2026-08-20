@@ -27,7 +27,7 @@ class QueryEndpointTest extends TestCase
     public function testEndpoint(): void
     {
         $instance = new QueryEndpoint();
-        $normalizerInterface = $this->createMock(NormalizerInterface::class);
+        $normalizerInterface = $this->createStub(NormalizerInterface::class);
 
         self::assertFalse($instance->normalize($normalizerInterface));
 

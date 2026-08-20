@@ -6,7 +6,6 @@ namespace Biano\ElasticsearchDSL\Aggregation\Bucketing;
 
 use LogicException;
 use function array_filter;
-use function array_values;
 use function count;
 use function is_array;
 
@@ -91,7 +90,7 @@ class Ipv4RangeAggregation extends AbstractBucketingAggregation
 
         return [
             'field' => $this->getField(),
-            'ranges' => array_values($this->ranges),
+            'ranges' => $this->ranges,
         ];
     }
 

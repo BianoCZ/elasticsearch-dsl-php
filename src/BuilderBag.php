@@ -12,15 +12,17 @@ use function random_bytes;
 
 /**
  * Container for named builders.
+ *
+ * @template T of \Biano\ElasticsearchDSL\BuilderInterface
  */
 class BuilderBag
 {
 
-    /** @var array<string,\Biano\ElasticsearchDSL\BuilderInterface> */
+    /** @var array<string,T> */
     private array $bag = [];
 
     /**
-     * @param list<\Biano\ElasticsearchDSL\BuilderInterface> $builders
+     * @param list<T> $builders
      */
     public function __construct(array $builders = [])
     {
@@ -31,6 +33,8 @@ class BuilderBag
 
     /**
      * Adds a builder.
+     *
+     * @param T $builder
      */
     public function add(BuilderInterface $builder): string
     {
@@ -71,6 +75,8 @@ class BuilderBag
 
     /**
      * Returns a builder by name.
+     *
+     * @return T
      */
     public function get(string $name): BuilderInterface
     {
@@ -80,7 +86,7 @@ class BuilderBag
     /**
      * Returns all builders contained.
      *
-     * @return list<\Biano\ElasticsearchDSL\BuilderInterface>
+     * @return list<T>
      */
     public function all(?string $type = null): array
     {

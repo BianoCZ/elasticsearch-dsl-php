@@ -31,9 +31,7 @@ class RangeAggregation extends AbstractBucketingAggregation
             $this->setField($field);
         }
 
-        if ($keyed !== null) {
-            $this->setKeyed($keyed);
-        }
+        $this->setKeyed($keyed);
 
         foreach ($ranges as $range) {
             $this->addRange($range['from'] ?? null, $range['to'] ?? null, ($range['key'] ?? null) !== null ? (string) $range['key'] : null);
@@ -89,7 +87,9 @@ class RangeAggregation extends AbstractBucketingAggregation
     {
         foreach ($this->ranges as $key => $range) {
             if (array_diff_assoc(array_filter(['from' => $from, 'to' => $to]), $range) === []) {
-                unset($this->ranges[$key]);
+                $ranges = $this->ranges;
+                unset($ranges[$key]);
+                $this->ranges = array_values($ranges);
 
                 return true;
             }
@@ -106,7 +106,9 @@ class RangeAggregation extends AbstractBucketingAggregation
         if ($this->keyed) {
             foreach ($this->ranges as $rangeKey => $range) {
                 if (array_key_exists('key', $range) && $range['key'] === $key) {
-                    unset($this->ranges[$rangeKey]);
+                    $ranges = $this->ranges;
+                    unset($ranges[$rangeKey]);
+                    $this->ranges = array_values($ranges);
 
                     return true;
                 }
@@ -129,7 +131,7 @@ class RangeAggregation extends AbstractBucketingAggregation
         return array_filter(
             [
                 'keyed' => $this->isKeyed(),
-                'ranges' => array_values($this->getRanges()),
+                'ranges' => $this->getRanges(),
                 'field' =>  $this->getField(),
             ],
             static fn ($v): bool => $v !== null,

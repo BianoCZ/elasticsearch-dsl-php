@@ -13,8 +13,8 @@ class BoostingQueryTest extends TestCase
 
     public function testToArray(): void
     {
-        $mock = $this->createMock(BuilderInterface::class);
-        $mock->expects(self::any())->method('toArray')->willReturn(['term' => ['foo' => 'bar']]);
+        $mock = $this->createStub(BuilderInterface::class);
+        $mock->method('toArray')->willReturn(['term' => ['foo' => 'bar']]);
 
         $query = new BoostingQuery($mock, $mock, 0.2);
         $expected = [

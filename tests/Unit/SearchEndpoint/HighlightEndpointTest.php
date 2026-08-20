@@ -21,7 +21,7 @@ class HighlightEndpointTest extends TestCase
     public function testNormalization(): void
     {
         $instance = new HighlightEndpoint();
-        $normalizerInterface = $this->createMock(NormalizerInterface::class);
+        $normalizerInterface = $this->createStub(NormalizerInterface::class);
 
         self::assertFalse($instance->normalize($normalizerInterface));
 

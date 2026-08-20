@@ -20,6 +20,9 @@ abstract class AbstractAggregation implements NamedBuilderInterface
 
     private ?string $field = null;
 
+    /**
+     * @var \Biano\ElasticsearchDSL\BuilderBag<\Biano\ElasticsearchDSL\Aggregation\AbstractAggregation>|null
+     */
     private ?BuilderBag $aggregations = null;
 
     abstract protected function supportsNesting(): bool;
@@ -120,6 +123,9 @@ abstract class AbstractAggregation implements NamedBuilderInterface
         return $result;
     }
 
+    /**
+     * @return \Biano\ElasticsearchDSL\BuilderBag<\Biano\ElasticsearchDSL\Aggregation\AbstractAggregation>
+     */
     private function createBuilderBag(): BuilderBag
     {
         return new BuilderBag();

@@ -10,7 +10,6 @@ use UnexpectedValueException;
 use stdClass;
 use function array_merge;
 use function array_walk;
-use function assert;
 use function bin2hex;
 use function count;
 use function in_array;
@@ -103,7 +102,6 @@ class BoolQuery implements BuilderInterface
 
         foreach ($this->container as $boolType => $builders) {
             foreach ($builders as $builder) {
-                assert($builder instanceof BuilderInterface);
                 $output[$boolType][] = $builder->toArray();
             }
         }

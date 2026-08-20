@@ -37,7 +37,6 @@ class SpanOrQueryTest extends TestCase
 
         $result = $query->getQueries();
 
-        self::assertIsArray($result);
         self::assertCount(1, $result);
     }
 

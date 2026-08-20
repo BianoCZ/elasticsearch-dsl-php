@@ -34,7 +34,7 @@ class SuggestEndpointTest extends TestCase
     {
         $instance = new SuggestEndpoint();
 
-        $normalizerInterface = $this->createMock(NormalizerInterface::class);
+        $normalizerInterface = $this->createStub(NormalizerInterface::class);
 
         $suggest = new Suggest('foo', 'bar', 'acme', 'foo');
         $instance->add($suggest);

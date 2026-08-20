@@ -113,14 +113,9 @@ class TopHitsAggregation extends AbstractMetricAggregation
 
     public function getArray(): array|stdClass
     {
-        $sortsOutput = [];
-        $addedSorts = array_filter($this->getSorts());
-        if ($addedSorts) {
-            foreach ($addedSorts as $sort) {
-                $sortsOutput[] = $sort->toArray();
-            }
-        } else {
-            $sortsOutput = null;
+        $sortsOutput = null;
+        foreach ($this->getSorts() as $sort) {
+            $sortsOutput[] = $sort->toArray();
         }
 
         $output = array_filter(

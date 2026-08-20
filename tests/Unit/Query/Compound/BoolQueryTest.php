@@ -144,7 +144,7 @@ class BoolQueryTest extends TestCase
     {
         $bool = new BoolQuery();
 
-        self::assertIsArray($bool->getQueries());
+        self::assertEmpty($bool->getQueries());
     }
 
     public function testGetQueries(): void
@@ -163,7 +163,7 @@ class BoolQueryTest extends TestCase
     {
         $bool = new BoolQuery();
 
-        self::assertIsArray($bool->getQueries(BoolQuery::MUST));
+        self::assertEmpty($bool->getQueries(BoolQuery::MUST));
     }
 
     public function testGetQueriesByBoolTypeWithQueryAddedToBoolType(): void

@@ -21,7 +21,7 @@ class SortEndpointTest extends TestCase
     {
         $instance = new SortEndpoint();
 
-        $normalizerInterface = $this->createMock(NormalizerInterface::class);
+        $normalizerInterface = $this->createStub(NormalizerInterface::class);
 
         $sort = new FieldSort('acme', ['order' => FieldSort::ASC]);
         $instance->add($sort);

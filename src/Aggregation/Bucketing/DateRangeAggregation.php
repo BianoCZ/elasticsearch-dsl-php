@@ -36,9 +36,7 @@ class DateRangeAggregation extends AbstractBucketingAggregation
             $this->setFormat($format);
         }
 
-        if ($keyed !== null) {
-            $this->setKeyed($keyed);
-        }
+        $this->setKeyed($keyed);
 
         foreach ($ranges as $range) {
             $this->addRange($range['from'] ?? null, $range['to'] ?? null, $range['key'] ?? null);

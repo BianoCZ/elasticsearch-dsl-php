@@ -20,7 +20,7 @@ class FunctionScoreQueryTest extends TestCase
     #[DataProvider('providerAddRandomFunction')]
     public function testAddRandomFunction(mixed $seed, array $expected): void
     {
-        $matchAllQuery = $this->createMock(MatchAllQuery::class);
+        $matchAllQuery = $this->createStub(MatchAllQuery::class);
 
         $functionScoreQuery = new FunctionScoreQuery($matchAllQuery);
         $functionScoreQuery->addRandomFunction($seed);
@@ -62,7 +62,7 @@ class FunctionScoreQueryTest extends TestCase
 
     public function testAddFieldValueFactorFunction(): void
     {
-        $mock = $this->createMock(BuilderInterface::class);
+        $mock = $this->createStub(BuilderInterface::class);
         $functionScoreQuery = new FunctionScoreQuery($mock);
         $functionScoreQuery->addFieldValueFactorFunction('field1', 2);
         $functionScoreQuery->addFieldValueFactorFunction('field2', 1.5, 'ln');

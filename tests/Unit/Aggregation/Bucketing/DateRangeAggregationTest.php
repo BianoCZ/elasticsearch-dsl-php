@@ -59,7 +59,7 @@ class DateRangeAggregationTest extends TestCase
     }
 
     /**
-     * @param array<mixed>|null $ranges
+     * @param list<array<string,mixed>>|null $ranges
      */
     #[DataProvider('provideDateRangeAggregationConstructor')]
     public function testDateRangeAggregationConstructor(?string $field = null, ?string $format = null, ?array $ranges = null): void

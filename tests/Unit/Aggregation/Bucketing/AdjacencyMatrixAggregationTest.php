@@ -13,7 +13,7 @@ class AdjacencyMatrixAggregationTest extends TestCase
 
     public function testFiltersAggregationGetArray(): void
     {
-        $mock = $this->createMock(BuilderInterface::class);
+        $mock = $this->createStub(BuilderInterface::class);
         $aggregation = new AdjacencyMatrixAggregation('test_agg');
         $aggregation->addFilter('name', $mock);
 
@@ -34,8 +34,8 @@ class AdjacencyMatrixAggregationTest extends TestCase
     public function testToArray(): void
     {
         $aggregation = new AdjacencyMatrixAggregation('test_agg');
-        $filter = $this->createMock(BuilderInterface::class);
-        $filter->expects(self::any())->method('toArray')
+        $filter = $this->createStub(BuilderInterface::class);
+        $filter->method('toArray')
             ->willReturn(['test_field' => ['test_value' => 'test']]);
 
         $aggregation->addFilter('first', $filter);
@@ -60,8 +60,8 @@ class AdjacencyMatrixAggregationTest extends TestCase
 
     public function testFilterConstructor(): void
     {
-        $builderInterface1 = $this->createMock(BuilderInterface::class);
-        $builderInterface2 = $this->createMock(BuilderInterface::class);
+        $builderInterface1 = $this->createStub(BuilderInterface::class);
+        $builderInterface2 = $this->createStub(BuilderInterface::class);
 
         $aggregation = new AdjacencyMatrixAggregation(
             'test',

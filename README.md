@@ -11,7 +11,7 @@ With some basic changes to support wider range of Symfony Versions.
 
 | Version | Supported Elasticsearch Version | Supported Symfony Version |
 |---------|---------------------------------|---------------------------|
-| 8.x     | ^8.0                            | ^7.0, ^6.0, ^5.0          |
+| 8.x     | ^8.0                            | ^8.0, ^7.0, ^6.0, ^5.0    |
 
 
 ## Documentation

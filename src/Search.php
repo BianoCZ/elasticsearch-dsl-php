@@ -28,6 +28,7 @@ use function array_filter;
 use function array_key_exists;
 use function assert;
 use function in_array;
+use function is_array;
 use function json_encode;
 use function sprintf;
 
@@ -715,7 +716,8 @@ class Search
      */
     public function toArray(): array
     {
-        $result = array_filter(self::$serializer->normalize($this->endpoints));
+        $normalized = self::$serializer->normalize($this->endpoints);
+        $result = is_array($normalized) ? array_filter($normalized) : [];
 
         $params = [
             'from' => 'from',
