@@ -16,25 +16,25 @@ jobs:
             fail-fast: false
             matrix:
                 include:
+                    - php-version: '8.1'
+                      lint: true
+                      symfony-version: '^6.4'
+
                     - php-version: '8.2'
                       lint: true
-                      symfony-version: '^5.0'
-
-                    - php-version: '8.3'
-                      lint: true
-                      symfony-version: '^6.0'
-
-                    - php-version: '8.3'
-                      lint: true
-                      symfony-version: '^7.0'
+                      symfony-version: '^7.4'
 
                     - php-version: '8.4'
                       lint: true
                       symfony-version: '^8.0'
 
+                    - php-version: '8.5'
+                      lint: true
+                      symfony-version: '^8.0'
+
         services:
             elasticsearch:
-                image: elasticsearch:8.19.20
+                image: elasticsearch:9.5.1
                 ports:
                     - 9200:9200
                 env:

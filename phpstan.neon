@@ -10,7 +10,6 @@ parameters:
 		-
 		    message: '#^Method Biano\\ElasticsearchDSL\\.+(Serializer|Normalizer|Endpoint)\:\:(denormalize|normalize|supportsDenormalization|supportsNormalization|getSupportedTypes)\(\) (return type has|has parameter \$context with) no value type specified in iterable type array\.$#'
 		    path: src/**
-		    reportUnmatched: false
 		-
 		    message: '#^Method Biano\\ElasticsearchDSL\\.+(Serializer|Normalizer)\:\:normalize\(\) return type with generic class ArrayObject does not specify its types\: TKey, TValue$#'
 		    path: src/**
@@ -19,6 +18,4 @@ parameters:
 		    message: '#^Cannot call method normalize\(\) on Biano\\ElasticsearchDSL\\Serializer\\OrderedSerializer\|null\.$#'
 		    path: src/Search.php
 		-
-		    message: '#^Call to function method_exists\(\) with Symfony\\Component\\Serializer\\(Normalizer\\CustomNormalizer|Serializer) and .getSupportedTypes. will always evaluate to true\.$#'
-		    path: src/Serializer/**
-		    reportUnmatched: false
+

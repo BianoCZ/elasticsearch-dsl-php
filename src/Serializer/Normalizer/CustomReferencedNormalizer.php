@@ -11,7 +11,6 @@ use Symfony\Component\Serializer\SerializerAwareInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use function array_merge;
 use function assert;
-use function method_exists;
 
 /**
  * Normalizer used with referenced normalized objects.
@@ -53,10 +52,6 @@ class CustomReferencedNormalizer implements NormalizerInterface, SerializerAware
      */
     public function getSupportedTypes(?string $format): array
     {
-        if (!method_exists($this->customNormalizer, 'getSupportedTypes')) {
-            return [];
-        }
-
         return $this->customNormalizer->getSupportedTypes($format);
     }
 
