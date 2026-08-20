@@ -26,7 +26,7 @@ class KnnEndpointTest extends TestCase
     {
         $endpoint = new KnnEndpoint();
 
-        self::assertEquals([], $endpoint->normalize($this->createMock(NormalizerInterface::class)));
+        self::assertEquals([], $endpoint->normalize($this->createStub(NormalizerInterface::class)));
     }
 
     public function testNormalizeSingleKnnIsNotWrappedInAList(): void
@@ -41,7 +41,7 @@ class KnnEndpointTest extends TestCase
             'num_candidates' => 50,
         ];
 
-        self::assertEquals($expected, $endpoint->normalize($this->createMock(NormalizerInterface::class)));
+        self::assertEquals($expected, $endpoint->normalize($this->createStub(NormalizerInterface::class)));
     }
 
     public function testNormalizeMultipleKnns(): void
@@ -65,7 +65,7 @@ class KnnEndpointTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, $endpoint->normalize($this->createMock(NormalizerInterface::class)));
+        self::assertEquals($expected, $endpoint->normalize($this->createStub(NormalizerInterface::class)));
     }
 
 }

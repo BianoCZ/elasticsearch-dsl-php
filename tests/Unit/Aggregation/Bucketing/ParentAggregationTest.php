@@ -31,7 +31,7 @@ class ParentAggregationTest extends TestCase
 
     public function testParentAggregationGetArray(): void
     {
-        $mock = $this->createMock(AbstractAggregation::class);
+        $mock = $this->createStub(AbstractAggregation::class);
         $mock->setName('name');
 
         $aggregation = new ParentAggregation('foo');
