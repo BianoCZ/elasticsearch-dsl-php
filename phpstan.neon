@@ -18,3 +18,6 @@ parameters:
 		-
 		    message: '#^Cannot call method normalize\(\) on Biano\\ElasticsearchDSL\\Serializer\\OrderedSerializer\|null\.$#'
 		    path: src/Search.php
+		-
+		    message: '#^Call to function method_exists\(\) with Symfony\\Component\\Serializer\\(Normalizer\\CustomNormalizer|Serializer) and .getSupportedTypes. will always evaluate to true\.$#'
+		    path: src/Serializer/**
