@@ -16,11 +16,11 @@ jobs:
             fail-fast: false
             matrix:
                 include:
-                    - php-version: '8.1'
+                    - php-version: '8.3'
                       lint: true
                       symfony-version: '^6.4'
 
-                    - php-version: '8.2'
+                    - php-version: '8.3'
                       lint: true
                       symfony-version: '^7.4'
 

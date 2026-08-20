@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.3",
         "ext-json": "*",
         "elasticsearch/elasticsearch": "^9.0",
         "symfony/serializer": "^6.4 || ^7.4 || ^8.0"
