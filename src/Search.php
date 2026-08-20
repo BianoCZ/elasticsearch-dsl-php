@@ -7,11 +7,13 @@ namespace Biano\ElasticsearchDSL;
 use Biano\ElasticsearchDSL\Aggregation\AbstractAggregation;
 use Biano\ElasticsearchDSL\Highlight\Highlight;
 use Biano\ElasticsearchDSL\InnerHit\NestedInnerHit;
+use Biano\ElasticsearchDSL\Knn\Knn;
 use Biano\ElasticsearchDSL\Query\Compound\BoolQuery;
 use Biano\ElasticsearchDSL\SearchEndpoint\AbstractSearchEndpoint;
 use Biano\ElasticsearchDSL\SearchEndpoint\AggregationsEndpoint;
 use Biano\ElasticsearchDSL\SearchEndpoint\HighlightEndpoint;
 use Biano\ElasticsearchDSL\SearchEndpoint\InnerHitsEndpoint;
+use Biano\ElasticsearchDSL\SearchEndpoint\KnnEndpoint;
 use Biano\ElasticsearchDSL\SearchEndpoint\PostFilterEndpoint;
 use Biano\ElasticsearchDSL\SearchEndpoint\QueryEndpoint;
 use Biano\ElasticsearchDSL\SearchEndpoint\SearchEndpointFactory;
@@ -141,6 +143,16 @@ class Search
      * @var array<mixed>|null
      */
     private ?array $searchAfter = null;
+
+    /**
+     * Collapses search results based on field values, returning only the top
+     * document per collapse key.
+     *
+     * @link https://www.elastic.co/guide/en/elasticsearch/reference/current/collapse-search-results.html
+     *
+     * @var array<string,mixed>|null
+     */
+    private ?array $collapse = null;
 
     /**
      * URI parameters alongside Request body search.
@@ -396,6 +408,26 @@ class Search
         return $this->getEndpoint(SuggestEndpoint::NAME)->getAll();
     }
 
+    /**
+     * Adds knn query into search.
+     */
+    public function addKnn(Knn $knn, ?string $key = null): self
+    {
+        $this->getEndpoint(KnnEndpoint::NAME)->add($knn, $key);
+
+        return $this;
+    }
+
+    /**
+     * Returns all knn queries.
+     *
+     * @return array<string,\Biano\ElasticsearchDSL\BuilderInterface>
+     */
+    public function getKnns(): array
+    {
+        return $this->getEndpoint(KnnEndpoint::NAME)->getAll();
+    }
+
     public function getFrom(): ?int
     {
         return $this->from;
@@ -594,6 +626,24 @@ class Search
         return $this;
     }
 
+    /**
+     * @return array<string,mixed>|null
+     */
+    public function getCollapse(): ?array
+    {
+        return $this->collapse;
+    }
+
+    /**
+     * @param array<string,mixed> $collapse
+     */
+    public function setCollapse(array $collapse): self
+    {
+        $this->collapse = $collapse;
+
+        return $this;
+    }
+
     public function getScroll(): ?string
     {
         return $this->scroll;
@@ -681,6 +731,7 @@ class Search
             'minScore' => 'min_score',
             'searchAfter' => 'search_after',
             'trackTotalHits' => 'track_total_hits',
+            'collapse' => 'collapse',
         ];
 
         foreach ($params as $field => $param) {

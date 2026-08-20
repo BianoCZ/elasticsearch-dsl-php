@@ -17,6 +17,7 @@ class SearchEndpointFactory
      */
     private static array $endpoints = [
         'query' => QueryEndpoint::class,
+        'knn' => KnnEndpoint::class,
         'post_filter' => PostFilterEndpoint::class,
         'sort' => SortEndpoint::class,
         'highlight' => HighlightEndpoint::class,
